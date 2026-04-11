@@ -2,6 +2,14 @@
 
 import { useState, useRef, useEffect } from "react"
 
+// Convert simple markdown (**bold**, links, bullets) to HTML
+function formatMessage(text: string): string {
+  return text
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" style="color:#C19A5B;text-decoration:underline">$1</a>')
+    .replace(/^([•✓✨💡💰📞⚡📅📍🔧🛠️🧹🌿🔐🚨🤖💬👉])/gm, '$1')
+}
+
 export function SimpleChatButton() {
   const [isOpen, setIsOpen] = useState(false)
   const [messages, setMessages] = useState<Array<{role: 'user' | 'assistant', content: string}>>([
@@ -242,9 +250,8 @@ export function SimpleChatButton() {
                     lineHeight: '1.6',
                     whiteSpace: 'pre-wrap',
                   }}
-                >
-                  {msg.content}
-                </div>
+                  dangerouslySetInnerHTML={{ __html: formatMessage(msg.content) }}
+                />
               </div>
             ))}
 

@@ -156,7 +156,7 @@ function generateResponse(userMessage: string): { content: string; suggestions: 
   if (/(emergency|urgent|asap|now|immediately|broken|burst|flood)/i.test(messageLower)) {
     const emergencyServices = findMatchingServices(userMessage)
     return {
-      content: "🚨 For emergencies, please call us directly at **020 7123 4567** for immediate assistance. In the meantime, here are relevant services:",
+      content: "🚨 For emergencies, please call us directly at **020 3874 2670** or **07459 345456** for immediate assistance. In the meantime, here are relevant services:",
       suggestions: emergencyServices.length > 0 ? emergencyServices : [
         { id: 'bf04c567-a58a-47af-aaf1-f2d6a4cd9a60', title: 'Gain Entry (Standard)', price: 140, category: 'Locksmith & Security' },
         { id: '3a467cdf-98ee-46fd-a867-fdc4a98f5820', title: 'Board Up Window', price: 180, category: 'Locksmith & Security' },

@@ -129,7 +129,7 @@ export default function Home() {
                 <div className="hero-stat-label">Services</div>
               </div>
               <div className="hero-stat">
-                <div className="hero-stat-number">16</div>
+                <div className="hero-stat-number">15</div>
                 <div className="hero-stat-label">Categories</div>
               </div>
               <div className="hero-stat">
@@ -194,7 +194,7 @@ export default function Home() {
           <div className="section-inner">
             <div className="section-header">
               <span className="section-label">Our Services</span>
-              <h2 className="section-title">57 Services Across 16 Categories</h2>
+              <h2 className="section-title">57 Services Across 15 Categories</h2>
               <p className="section-description">From quick fixes to complete property maintenance packages. All prices include labour, materials, and our satisfaction guarantee.</p>
             </div>
             <div className="category-nav">
