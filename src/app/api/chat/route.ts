@@ -9,6 +9,8 @@ import { z } from "zod";
 import { services } from "@/lib/data";
 import { checkRateLimit, getClientIdentifier, createRateLimitHeaders, RATE_LIMIT_PRESETS } from "@/lib/rate-limit";
 
+export const maxDuration = 10;
+
 // Request validation schema
 const chatRequestSchema = z.object({
   message: z.string().min(1).max(1000),

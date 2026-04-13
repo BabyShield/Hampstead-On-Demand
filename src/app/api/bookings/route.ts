@@ -3,6 +3,8 @@ import { Resend } from 'resend';
 import { z } from 'zod';
 import { checkRateLimit, getClientIdentifier, createRateLimitHeaders, RATE_LIMIT_PRESETS } from '@/lib/rate-limit';
 
+export const maxDuration = 10;
+
 // Zod schema for input validation
 const bookingEmailSchema = z.object({
   serviceName: z.string().min(1, 'Service name is required').max(200),
