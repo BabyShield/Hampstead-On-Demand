@@ -4,8 +4,8 @@ import { blogPosts } from '@/content/blog/blog-posts'
 import { getBlogPostSchema } from '@/lib/structured-data'
 import type { Metadata } from 'next'
 
-// Make this a dynamic page to avoid build timeout
-export const dynamic = 'force-dynamic'
+// Allow dynamic params for blog slugs, but use static rendering + ISR
+// (no external calls - reads from static array, so no need for force-dynamic)
 export const dynamicParams = true
 
 interface BlogPostPageProps {

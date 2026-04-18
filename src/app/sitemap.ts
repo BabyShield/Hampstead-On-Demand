@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { blogPosts } from '@/content/blog/blog-posts'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://hampsteadmaintenance.co.uk'
@@ -44,10 +45,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '24-hour-boiler-repair',
   ]
 
-  // Blog posts (will be dynamically generated)
-  const blogPosts = Array.from({ length: 100 }, (_, i) => ({
-    url: `${baseUrl}/blog/post-${i + 1}`,
-    lastModified: new Date(),
+  // Blog posts - use actual published posts instead of generating fake URLs
+  const blogEntries = blogPosts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(post.modifiedDate || post.publishedDate),
     changeFrequency: 'weekly' as const,
     priority: 0.7,
   }))
@@ -124,6 +125,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     })),
     // Blog posts
-    ...blogPosts,
+    ...blogEntries,
   ]
 }
